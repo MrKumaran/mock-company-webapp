@@ -19,8 +19,8 @@ jobs:
           java-version: '8'
           cache: 'gradle'
           cache-dependency-path: | 
-            sub-project/*.gradle*
-            sub-project/**/gradle-wrapper.properties
+            sub-project/./gradlew
+            sub-project/gradle/gradle-wrapper.properties
       - run: ./gradlew build --no-daemon
       - name: Jenkinsfile Runner Prepackaged
         uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
