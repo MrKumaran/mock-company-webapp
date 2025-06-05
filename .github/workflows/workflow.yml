@@ -3,7 +3,7 @@ name: "Workflow 2"
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   run-jenkinsfile:
