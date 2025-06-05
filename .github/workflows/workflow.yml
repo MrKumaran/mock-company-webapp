@@ -7,14 +7,13 @@ jobs:
   run-jenkinsfile:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - uses: actions/checkout@v3
 
-      # Set up Node.js using the official action (avoids sudo/curl problems)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22.x'
 
-      # Run Jenkinsfile Runner (make sure your Jenkinsfile does not use unsupported plugins or SCMs)
       - name: Jenkinsfile Runner Prepackaged
         uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
