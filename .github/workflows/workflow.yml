@@ -4,7 +4,7 @@ on:
       task:
         description: 'Choose what to run: gradle or jenkins'
         required: true
-        default: 'gradle'
+        default: 'jenkins'
 
 jobs:
   run-gradle:
