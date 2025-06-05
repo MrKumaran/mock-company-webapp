@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-              docker {
-                  image 'ubuntu:22.04'  // or a custom image with JDK, Node, etc.
-              }
-          }
+    agent any
 
     environment {
         GRADLE_OPTS = '-Dorg.gradle.daemon=false'
@@ -13,7 +9,7 @@ pipeline {
         stage('Install Node') {
             steps {
                 sh '''
-                    curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
+                    curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
                     apt-get update
                     apt-get install -y nodejs
                     node -v
