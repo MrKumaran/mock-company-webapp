@@ -23,3 +23,5 @@ public class SearchReportResponse {
         this.searchTermHits = searchTermHits;
     }
 }
+
+// push
