@@ -19,3 +19,4 @@ jobs:
         with:
           node-version: '12'
       - run: ./gradlew build
+      - run: ./gradlew test
