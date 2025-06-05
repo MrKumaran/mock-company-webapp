@@ -6,11 +6,20 @@ pipeline {
     }
 
     stages {
+        stage('Fix Debian sources') {
+            steps {
+                sh '''
+                sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list
+                sed -i 's/security.debian.org/archive.debian.org/g' /etc/apt/sources.list
+                apt-get update -o Acquire::Check-Valid-Until=false
+                '''
+            }
+        }
+
         stage('Install Node') {
             steps {
                 sh '''
                     curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-                    apt-get update
                     apt-get install -y nodejs
                     node -v
                     npm -v
