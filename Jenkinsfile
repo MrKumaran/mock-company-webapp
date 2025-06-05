@@ -9,6 +9,7 @@ pipeline {
         stage('Install Node') {
             steps {
                 sh '''
+                    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
                     apt-get install -y nodejs
                     node -v
                     npm -v
