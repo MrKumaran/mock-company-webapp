@@ -8,6 +8,6 @@ jobs:
   run-jenkinsfile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: jenkinsfile-runner-prepackaged
         uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
