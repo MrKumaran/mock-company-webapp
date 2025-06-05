@@ -9,11 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22.x'
-
+          node-version: '12.x'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          java-version: '8'
+          cache: 'gradle'
+          cache-dependency-path: | 
+            sub-project/*.gradle*
+            sub-project/**/gradle-wrapper.properties
+      - run: ./gradlew build --no-daemon
       - name: Jenkinsfile Runner Prepackaged
         uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
