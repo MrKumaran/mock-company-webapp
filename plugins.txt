@@ -1,0 +1,6 @@
+workflow-aggregator:2.6
+git:4.13.0
+gradle:2.8
+pipeline-stage-view:2.30
+script-security:1229.v4880b_b_e905a_6
+workflow-cps:3658.vf15240b_9fcca

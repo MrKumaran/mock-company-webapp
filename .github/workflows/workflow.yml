@@ -1,8 +1,9 @@
-run-name: "Workflow 2"
+name: "Workflow 2"
+
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   run-jenkinsfile:
@@ -11,3 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: jenkinsfile-runner-prepackaged
         uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
+        with:
+          pluginstxt: plugins.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
