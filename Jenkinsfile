@@ -1,6 +1,3 @@
-#!groovy
-import groovy.json.JsonOutput
-
 node {
         checkoutSource()
         build()
