@@ -15,5 +15,6 @@ jobs:
         with:
           pluginsTxt: plugins.txt
           jenkinsfile: Jenkinsfile
+          war: jenkins.war
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
