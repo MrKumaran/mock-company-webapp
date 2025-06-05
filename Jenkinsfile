@@ -5,17 +5,12 @@ node {
         checkoutSource()
         build()
         allTests()
-        createRelease("${env.GITHUB_ACTION}-${env.GITHUB_SHA}")
 }
 
 def checkoutSource() {
   stage ('checkoutSource') {
-    copyFilesToWorkSpace()
+    sh "cp -r /github/workspace/* $WORKSPACE"
   }
-}
-
-def copyFilesToWorkSpace() {
-  mysh "cp -r /github/workspace/* $WORKSPACE"
 }
 
 def build () {
