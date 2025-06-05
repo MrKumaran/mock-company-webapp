@@ -1,4 +1,4 @@
-run-name: "Workflow"
+run-name: "Workflow 2"
 on:
   push:
     branches:
@@ -8,17 +8,6 @@ jobs:
   run-jenkinsfile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '12.x'
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '8'
-      - run: ./gradlew build --no-daemon
-               - name: Check Java
-      - run: java -version
-      - name: Jenkinsfile Runner Prepackaged
-        uses: jenkinsci/jenkinsfile-runner-github-actions@v0.2
+      - uses: actions/checkout@master
+      - name: jenkinsfile-runner-prepackaged
+        uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master

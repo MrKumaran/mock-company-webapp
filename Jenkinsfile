@@ -1,17 +1,32 @@
-pipeline {
-    agent any
+#!groovy
+import groovy.json.JsonOutput
 
-    stages {
-        stage('Backend Build') {
-            steps {
-                sh './gradlew assemble'
-            }
-        }
+node {
+        checkoutSource()
+        build()
+        allTests()
+        createRelease("${env.GITHUB_ACTION}-${env.GITHUB_SHA}")
+}
 
-        stage('Backend Test') {
-            steps {
-                sh './gradlew test'
-            }
-        }
+def checkoutSource() {
+  stage ('checkoutSource') {
+    copyFilesToWorkSpace()
+  }
+}
+
+def copyFilesToWorkSpace() {
+  mysh "cp -r /github/workspace/* $WORKSPACE"
+}
+
+def build () {
+    stage ('Build') {
+      sh './gradlew assemble'
+    }
+}
+
+def allTests() {
+    stage ('All tests') {
+
+      sh './gradlew test'
     }
 }
