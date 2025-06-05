@@ -9,7 +9,7 @@ pipeline {
         stage('Install Node') {
             steps {
                 sh '''
-                    curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+                    curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
                     apt-get update
                     apt-get install -y nodejs
                     node -v
