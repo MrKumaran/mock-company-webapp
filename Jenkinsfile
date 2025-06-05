@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+              docker {
+                  image 'ubuntu:22.04'  // or a custom image with JDK, Node, etc.
+              }
+          }
 
     environment {
         GRADLE_OPTS = '-Dorg.gradle.daemon=false'
