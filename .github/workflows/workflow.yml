@@ -5,7 +5,6 @@ on:
 
 jobs:
   run-jenkinsfile:
-    if: ${{ github.event.inputs.task == 'jenkins' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
