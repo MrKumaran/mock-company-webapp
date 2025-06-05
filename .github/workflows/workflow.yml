@@ -13,6 +13,7 @@ jobs:
       - name: jenkinsfile-runner-prepackaged
         uses: jenkinsci/jenkinsfile-runner-github-actions/jenkinsfile-runner-prepackaged@master
         with:
-          pluginstxt: plugins.txt
+          pluginsTxt: plugins.txt
+          jenkinsfile: Jenkinsfile
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
