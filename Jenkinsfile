@@ -6,19 +6,26 @@ pipeline {
     }
 
     stages {
+        stage('Install Node') {
+            steps {
+                sh '''
+                    curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+                    sudo apt-get install -y nodejs
+                    node -v
+                    npm -v
+                '''
+            }
+        }
+
         stage('Backend Build') {
             steps {
-                dir('') {
-                    sh './gradlew assemble'
-                }
+                sh './gradlew assemble'
             }
         }
 
         stage('Backend Test') {
             steps {
-                dir('') {
-                    sh './gradlew test'
-                }
+                sh './gradlew test'
             }
         }
 
